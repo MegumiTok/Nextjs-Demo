@@ -44,3 +44,9 @@ npm install sass --save-dev
 ## Install Tailwind CSS with Next.js
 
 [Install Tailwind CSS with Next.js](https://tailwindcss.com/docs/guides/nextjs)
+
+## React Icons
+
+```bash
+npm install react-icons --save
+```
