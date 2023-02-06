@@ -1,6 +1,7 @@
 import Layout from "../../components/layout";
 import Head from "next/head";
 import { FiUserPlus } from "react-icons/fi";
+import Table from "@/components/table";
 export default function Employee() {
   return (
     <Layout>
@@ -24,8 +25,10 @@ export default function Employee() {
             </div>
 
             {/* collapsible form */}
-
-            {/* table */}
+          </div>
+          {/* table */}
+          <div className="container mx-auto">
+            <Table></Table>
           </div>
         </main>
       </section>
