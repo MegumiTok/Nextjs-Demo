@@ -1,8 +1,25 @@
+import { useReducer } from "react";
+import { BiPlus } from "react-icons/bi";
+const formReducer = (state, event) => {
+  return {
+    ...state,
+    // name: event.target.value,
+    [event.target.name]: event.target.value,
+  };
+};
+
 export default function Form() {
+  const [formData, setFormData] = useReducer(formReducer, {});
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
   return (
-    <form className="grid lg:grid-cols-2 w-4/6 gap-4">
+    <form className="grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleSubmit}>
       <div className="input-type">
         <input
+          onChange={setFormData}
           type="text"
           name="firstname"
           placeholder="FirstName"
@@ -12,6 +29,7 @@ export default function Form() {
 
       <div className="input-type">
         <input
+          onChange={setFormData}
           type="text"
           name="lastname"
           placeholder="LastName"
@@ -21,6 +39,7 @@ export default function Form() {
 
       <div className="input-type">
         <input
+          onChange={setFormData}
           type="text"
           name="email"
           placeholder="Email"
@@ -30,6 +49,7 @@ export default function Form() {
 
       <div className="input-type">
         <input
+          onChange={setFormData}
           type="text"
           name="salary"
           placeholder="Salary"
@@ -39,6 +59,7 @@ export default function Form() {
 
       <div className="input-type">
         <input
+          onChange={setFormData}
           type="date"
           name="date"
           className="border px-5 py-3 focus:outline-none rounded-md"
@@ -48,6 +69,7 @@ export default function Form() {
       <div className="flex gap-10 items-center">
         <div className="form-check">
           <input
+            onChange={setFormData}
             type="radio"
             value="Active"
             id="radioDefault1"
@@ -61,6 +83,7 @@ export default function Form() {
         </div>
         <div className="form-check">
           <input
+            onChange={setFormData}
             type="radio"
             value="Inactive"
             id="radioDefault2"
@@ -73,8 +96,12 @@ export default function Form() {
           </label>
         </div>
       </div>
+      {/* button 要素はデフォルトで type='submit' が割り当てられる */}
       <button className="flex justify-center text-md w-2/6 bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-green-400 hover:border-green-400">
-        Add
+        Add{" "}
+        <span className="px-1">
+          <BiPlus size={24}></BiPlus>
+        </span>
       </button>
     </form>
   );
