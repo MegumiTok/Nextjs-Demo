@@ -40,3 +40,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ```bash
 npm install sass --save-dev
 ```
+
+## Install Tailwind CSS with Next.js
+
+[Install Tailwind CSS with Next.js](https://tailwindcss.com/docs/guides/nextjs)

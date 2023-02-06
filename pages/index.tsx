@@ -32,7 +32,7 @@ export default function Home(
       <Head>
         <title>Next.js 練習App</title>
       </Head>
-      <h1>Next.js 練習App</h1>
+      <h1 className="text-3xl font-bold">Next.js 練習App</h1>
       <section className={homeStyles.title}>
         <Header />
       </section>
