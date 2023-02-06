@@ -2,6 +2,8 @@ import Layout from "../../components/layout";
 import Head from "next/head";
 import { FiUserPlus } from "react-icons/fi";
 import Table from "@/components/table";
+import Form from "@/components/form";
+
 export default function Employee() {
   return (
     <Layout>
@@ -23,11 +25,14 @@ export default function Employee() {
                 </span>
               </button>
             </div>
-
-            {/* collapsible form */}
           </div>
+          {/* collapsible form */}
+          <div className="container mx-auto py-5">
+            <Form></Form>
+          </div>
+
           {/* table */}
-          <div className="container mx-auto">
+          <div className="container mx-auto ">
             <Table></Table>
           </div>
         </main>
