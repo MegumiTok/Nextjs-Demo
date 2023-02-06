@@ -10,6 +10,9 @@ export default function Header() {
       <li className={headerStyles.list}>
         <Link href="/todo">ToDo</Link>
       </li>
+      <li className={headerStyles.list}>
+        <Link href="/employee">Employee Management</Link>
+      </li>
     </div>
   );
 }

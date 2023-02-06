@@ -10,10 +10,6 @@ export default function layout({
 }) {
   return (
     <div>
-      <div className={styles.container}>
-        <main>{children}</main>
-        {/* <Footer /> */}
-      </div>
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/" className={styles.back}>
@@ -21,6 +17,10 @@ export default function layout({
           </Link>
         </div>
       )}
+      <div className={styles.container}>
+        <main>{children}</main>
+        {/* <Footer /> */}
+      </div>
     </div>
   );
 }

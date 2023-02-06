@@ -3,14 +3,14 @@
   margin-bottom: 1em;
 }
 
-.backToHome {
-  margin: 9rem 0 0;
-}
 .backToHome .back {
-  background-color: aqua;
+  background-color: rgb(73, 208, 208);
   color: #fff;
-  padding: 1em;
-  border-radius: 30px;
-  font-size: 30px;
+  padding: 0.5em;
+  border-radius: 10px;
+  font-size: 19px;
   text-decoration: none;
+  position: absolute;
+  top: 1em;
+  left: 1em;
 }/*# sourceMappingURL=layout.module.css.map */
