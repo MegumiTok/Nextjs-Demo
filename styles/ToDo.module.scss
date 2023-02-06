@@ -1,0 +1,52 @@
+.input_wrap {
+  margin: 1em 0;
+}
+
+.button {
+  width: 100px;
+  // margin-top: 12px;
+  // margin-left: 12px;
+  margin: .8em;
+  padding: 8px 12px;
+
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 2px 2px #ddd;
+  font-size: 1.1rem;
+
+  &_add {
+    background-color: #ef857d;
+  }
+
+  &_edit {
+    background-color: #7d9fef;
+    width: 70px;
+  }
+
+  &_delete {
+    background-color: #ead31f;
+    width: 70px;
+  }
+}
+
+.input {
+  width: 460px;
+  padding: .5em 1em;
+  border: 1px solid #efefef;
+  outline: none;
+  border-radius: 4px;
+  font-size: 1.2rem;
+}
+
+.list_wrap {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list {
+  font-size: 2rem;
+  margin-left: .5em;
+}
