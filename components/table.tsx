@@ -26,39 +26,46 @@ export default function Table() {
         </tr>
       </thead>
       <tbody className="bg-gray-200">
-        <tr className="bg-gray-50 text-center">
-          <td className="px-16 py-2 flex flex-row items-center">
-            <img src="#" alt="" />
-            <span className="text-center ml-2 font-semibold">
-              Daily Tuition
-            </span>
-          </td>
-          <td className="px-16 py-2">
-            <span className="">hello@gmail.com</span>
-          </td>
-          <td className="px-16 py-2">
-            <span className="">$8000</span>
-          </td>
-          <td className="px-16 py-2">
-            <span className="">10-15-2022</span>
-          </td>
-          <td className="px-16 py-2">
-            <button className="cursor">
-              <span className="bg-green-500 text-white px-5 py-1 rounded-full">
-                Active
-              </span>
-            </button>
-          </td>
-          <td className="px-16 py-2 flex flex-row">
-            <button className="cursor">
-              <BiEdit size={25} color={"rgb(34,197,94"}></BiEdit>
-            </button>
-            <button>
-              <BiTrashAlt size={25} color={"rgb(244,63,94"}></BiTrashAlt>
-            </button>
-          </td>
-        </tr>
+        {Tr()}
+        {Tr()}
+        {Tr()}
+        {Tr()}
       </tbody>
     </table>
+  );
+}
+
+function Tr() {
+  return (
+    <tr className="bg-gray-50 text-center">
+      <td className="px-16 py-2 flex flex-row items-center">
+        <img src="#" alt="" />
+        <span className="text-center ml-2 font-semibold">Daily Tuition</span>
+      </td>
+      <td className="px-16 py-2">
+        <span className="">hello@gmail.com</span>
+      </td>
+      <td className="px-16 py-2">
+        <span className="">$8000</span>
+      </td>
+      <td className="px-16 py-2">
+        <span className="">10-15-2022</span>
+      </td>
+      <td className="px-16 py-2">
+        <button className="cursor">
+          <span className="bg-green-500 text-white px-5 py-1 rounded-full">
+            Active
+          </span>
+        </button>
+      </td>
+      <td className="px-16 py-2 flex flex-row">
+        <button className="cursor">
+          <BiEdit size={25} color={"rgb(34,197,94"}></BiEdit>
+        </button>
+        <button>
+          <BiTrashAlt size={25} color={"rgb(244,63,94"}></BiTrashAlt>
+        </button>
+      </td>
+    </tr>
   );
 }
