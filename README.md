@@ -50,3 +50,9 @@ npm install sass --save-dev
 ```bash
 npm install react-icons --save
 ```
+
+## MongoDB
+
+```bash
+npm i -D mongoose
+```
