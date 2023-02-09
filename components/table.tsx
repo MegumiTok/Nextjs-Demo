@@ -2,18 +2,18 @@ import { BiEdit, BiTrashAlt } from "react-icons/bi";
 // import data from "../database/data.json";
 import { getUsers } from "@/lib/helper";
 import { useQuery } from "react-query";
-import { useAppSelector } from "@/redux/store";
+import { useAppSelector, useAppDispatch } from "@/redux/store";
+import { toggleChangeAction } from "@/redux/reducer";
 
 export default function Table() {
   // console.log(getUser());
   // getUser().then((res) => console.log(res));
 
-  const state = useAppSelector((state) => state);
-  console.log(state);
   const { isLoading, isError, data, error } = useQuery("users", getUsers);
 
   if (isLoading) return <div>Employee is Loading...</div>;
   if (isError) return <div>Got Error {error}</div>;
+
   return (
     <table className="min-w-full table-auto">
       <thead>
@@ -52,6 +52,15 @@ export default function Table() {
 }
 
 function Tr({ id, name, avatar, email, salary, date, status }) {
+  const visible = useAppSelector(
+    (state) => state.employeeManagement.client.toggleForm
+  );
+  const dispatch = useAppDispatch();
+
+  const onUpdate = () => {
+    dispatch(toggleChangeAction());
+    console.log(visible);
+  };
   return (
     <tr className="bg-gray-50 text-center">
       <td className="px-16 py-2 flex flex-row items-center">
@@ -86,7 +95,7 @@ function Tr({ id, name, avatar, email, salary, date, status }) {
         </button>
       </td>
       <td className="px-16 py-2 flex flex-row">
-        <button className="cursor">
+        <button className="cursor" onClick={onUpdate}>
           <BiEdit size={25} color={"rgb(34,197,94"}></BiEdit>
         </button>
         <button>
