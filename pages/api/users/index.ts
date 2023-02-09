@@ -2,7 +2,7 @@
 import connectMongo from "../../../database/conn";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { ResponseFuncs } from "@/lib/types";
-import { getUsers, postUser } from "@/database/controller";
+import { getUsers, postUser, putUser } from "@/database/controller";
 
 export default async function handler(
   req: NextApiRequest,
@@ -26,7 +26,8 @@ export default async function handler(
       postUser(req, res);
       break;
     case "PUT":
-      res.status(200).json({ method, name: "PUT Request" });
+      // res.status(200).json({ method, name: "PUT Request" });
+      putUser(req, res);
       break;
     case "DELETE":
       res.status(200).json({ method, name: "DELETE Request" });
