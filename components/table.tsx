@@ -2,10 +2,14 @@ import { BiEdit, BiTrashAlt } from "react-icons/bi";
 // import data from "../database/data.json";
 import { getUsers } from "@/lib/helper";
 import { useQuery } from "react-query";
+import { useAppSelector } from "@/redux/store";
+
 export default function Table() {
   // console.log(getUser());
   // getUser().then((res) => console.log(res));
 
+  const state = useAppSelector((state) => state);
+  console.log(state);
   const { isLoading, isError, data, error } = useQuery("users", getUsers);
 
   if (isLoading) return <div>Employee is Loading...</div>;
