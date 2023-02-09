@@ -29,7 +29,7 @@ export async function postUser(req: NextApiRequest, res: NextApiResponse) {
   }
 }
 
-// put : http://localhost:3000/api/users
+// put : http://localhost:3000/api/users/[id]
 export async function putUser(req: NextApiRequest, res: NextApiResponse) {
   try {
     const { userId } = req.query;
@@ -44,6 +44,21 @@ export async function putUser(req: NextApiRequest, res: NextApiResponse) {
     }
     res.status(404).json({ error: "User Not Selected...!" });
   } catch (error) {
-    return res.status(404).json({ error: "Error WHile Updating the Data...!" });
+    return res.status(404).json({ error: "Error While Updating the Data...!" });
+  }
+}
+
+// delete : http://localhost:3000/api/users/[id]
+export async function deleteUser(req: NextApiRequest, res: NextApiResponse) {
+  try {
+    const { userId } = req.query;
+    if (userId) {
+      const user = await Users.findByIdAndDelete(userId);
+      // return res.status(200).json({ deleted: userId });
+      return res.status(200).json(user);
+    }
+    res.status(404).json({ error: "User Not Selected...!" });
+  } catch (error) {
+    return res.status(404).json({ error: "Error While Deleting the Data...!" });
   }
 }
