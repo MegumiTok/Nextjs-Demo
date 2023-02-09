@@ -4,7 +4,15 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ### v1
 
-MongoDB からのデータをフロントエンドに反映する前
+```bash
+npm i -D mongoose
+```
+
+### v2
+
+```bash
+npm install @reduxjs/toolkit
+```
 
 ## Getting Started
 
@@ -55,12 +63,6 @@ npm install sass --save-dev
 
 ```bash
 npm install react-icons --save
-```
-
-## MongoDB
-
-```bash
-npm i -D mongoose
 ```
 
 [ドキュメント](https://mongoosejs.com/)
