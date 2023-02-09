@@ -11,7 +11,6 @@ export async function getUsers(req: NextApiRequest, res: NextApiResponse) {
     // res.status(200).json({ user: "GET Request" });
     res.status(200).json(users);
   } catch (error) {
-    console.log("Error While Fetching Data");
     res.status(404).json({ error: "Error While Fetching Data" });
   }
 }
@@ -27,5 +26,24 @@ export async function postUser(req: NextApiRequest, res: NextApiResponse) {
     });
   } catch (error) {
     return res.status(404).json({ error });
+  }
+}
+
+// put : http://localhost:3000/api/users
+export async function putUser(req: NextApiRequest, res: NextApiResponse) {
+  try {
+    const { userId } = req.query;
+    const formData = req.body;
+    if (userId && formData) {
+      // 変更した分をみる場合
+      // await Users.findByIdAndUpdate(userId, formData);
+      // res.status(200).json(formData);
+
+      const user = await Users.findByIdAndUpdate(userId, formData);
+      res.status(200).json(user); //<--  変更するuserの情報をみる場合
+    }
+    res.status(404).json({ error: "User Not Selected...!" });
+  } catch (error) {
+    return res.status(404).json({ error: "Error WHile Updating the Data...!" });
   }
 }
