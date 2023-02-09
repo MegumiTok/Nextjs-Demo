@@ -4,7 +4,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ### v1
 
-MongoDB からのデータをフロントエンドに反映する前
+MongoDB,React Query
+
+### v2
 
 ## Getting Started
 
