@@ -5,7 +5,7 @@ const initialState = {
 };
 
 export const ReducerSlice = createSlice({
-  name: "EmployeeManagement",
+  name: "employeeManagement",
   initialState,
   reducers: {
     toggleChangeAction: (state) => {
