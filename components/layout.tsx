@@ -17,7 +17,7 @@ export default function layout({
           </Link>
         </div>
       )}
-      <div className={styles.container}>
+      <div>
         <main>{children}</main>
         {/* <Footer /> */}
       </div>
