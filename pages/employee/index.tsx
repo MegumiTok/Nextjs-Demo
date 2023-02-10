@@ -1,15 +1,22 @@
 import Layout from "../../components/layout";
 import Head from "next/head";
+import { BiUserPlus, BiX, BiCheck } from "react-icons/bi";
 import { FiUserPlus } from "react-icons/fi";
 import Table from "@/components/table";
 import Form from "@/components/form";
 import { useState } from "react";
 import { useAppSelector, useAppDispatch } from "@/redux/store";
-import { toggleChangeAction } from "@/redux/reducer";
+import { toggleChangeAction, deleteAction } from "@/redux/reducer";
+import { deleteUser, getUsers } from "@/lib/helper";
+import { useQueryClient } from "react-query";
 
 export default function Employee() {
   // const [visible, setVisible] = useState(false);
   const dispatch = useAppDispatch();
+  const queryclient = useQueryClient();
+  const deleteId = useAppSelector(
+    (state) => state.employeeManagement.client.deleteId
+  );
   const visible = useAppSelector(
     (state) => state.employeeManagement.client.toggleForm
   );
@@ -19,6 +26,19 @@ export default function Employee() {
     // setVisible(visible ? false : true);
     // setVisible(!visible);
     dispatch(toggleChangeAction());
+  };
+
+  const deletehandler = async () => {
+    if (deleteId) {
+      await deleteUser(deleteId);
+      await queryclient.prefetchQuery("users", getUsers);
+      await dispatch(deleteAction(null));
+    }
+  };
+
+  const canclehandler = async () => {
+    console.log("cancel");
+    await dispatch(deleteAction(null));
   };
   return (
     <Layout>
@@ -43,6 +63,12 @@ export default function Employee() {
                 </span>
               </button>
             </div>
+
+            {deleteId ? (
+              DeleteComponent({ deletehandler, canclehandler })
+            ) : (
+              <></>
+            )}
           </div>
           {/* collapsible form */}
 
@@ -55,5 +81,31 @@ export default function Employee() {
         </main>
       </section>
     </Layout>
+  );
+}
+
+function DeleteComponent({ deletehandler, canclehandler }) {
+  return (
+    <div className="flex gap-5">
+      <button>Are you sure?</button>
+      <button
+        onClick={deletehandler}
+        className="flex bg-red-500 text-white px-4 py-2 border rounded-md hover:bg-rose-500 hover:border-red-500 hover:text-gray-50"
+      >
+        Yes{" "}
+        <span className="px-1">
+          <BiX color="rgb(255 255 255)" size={25} />
+        </span>
+      </button>
+      <button
+        onClick={canclehandler}
+        className="flex bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-gree-500 hover:border-green-500 hover:text-gray-50"
+      >
+        No{" "}
+        <span className="px-1">
+          <BiCheck color="rgb(255 255 255)" size={25} />
+        </span>
+      </button>
+    </div>
   );
 }
