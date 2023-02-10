@@ -4,14 +4,21 @@ import { FiUserPlus } from "react-icons/fi";
 import Table from "@/components/table";
 import Form from "@/components/form";
 import { useState } from "react";
+import { useAppSelector, useAppDispatch } from "@/redux/store";
+import { toggleChangeAction } from "@/redux/reducer";
 
 export default function Employee() {
-  const [visible, setVisible] = useState(false);
+  // const [visible, setVisible] = useState(false);
+  const dispatch = useAppDispatch();
+  const visible = useAppSelector(
+    (state) => state.employeeManagement.client.toggleForm
+  );
 
   const handler = () => {
     // setVisible(true);
     // setVisible(visible ? false : true);
-    setVisible(!visible);
+    // setVisible(!visible);
+    dispatch(toggleChangeAction());
   };
   return (
     <Layout>
