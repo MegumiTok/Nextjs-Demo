@@ -1,21 +1,12 @@
-import { useReducer } from "react";
 import { BiPlus } from "react-icons/bi";
 import Success from "./success";
 import Bug from "./bug";
 import { useQueryClient, useMutation } from "react-query";
 import { addUser, getUsers } from "@/lib/helper";
 
-const formReducer = (state, event) => {
-  return {
-    ...state,
-    // name: event.target.value,
-    [event.target.name]: event.target.value,
-  };
-};
-
-export default function AddUserForm() {
+export default function AddUserForm({ formData, setFormData }) {
   const queryClient = useQueryClient();
-  const [formData, setFormData] = useReducer(formReducer, {});
+
   const addMutation = useMutation(addUser, {
     onSuccess: () => {
       // console.log("Data Inserted");
